@@ -196,48 +196,101 @@ reset으로 브랜치를 과거로 옮기고 강제로 push하는 방식 대신,
 ## 실습 4: stash와 stash pop으로 작업 보관 및 복원
 
 ### 참여자
-- 예정 실행 및 기록 작성자: 황승재(bidulgiya999)
-- 수행 상태: 실행 전
+- 실제 실행자: <황승재>
+- 기록 작성자: <이송하>
+
+### 환경과 관련 작업
+- 환경: Windows, VS Code, PowerShell
+- 관련 Issue: #<생성한 Issue 번호>
+- 작업 브랜치: `feature/seungjae-stash-practice`
+- 전환한 브랜치: `feature/jiyoung-revert-practice`
+- 실습 파일: `src/stash-practice.txt`
 
 ### 상황
-Git이 이미 추적하는 실습 파일을 수정하던 중,
-다른 브랜치로 잠시 이동해야 하는 상황을 실습한다.
-아직 커밋하지 않은 변경을 보관하고 돌아와 복원한다.
+이미 커밋한 실습 파일에 두 번째 문장을 추가하던 중,
+다른 브랜치로 이동해야 하는 상황을 실습했다.
+아직 커밋하지 않은 변경을 stash로 보관하고 돌아와 복원했다.
 
-### 실행 계획
-1. 작업 Issue를 생성하고 개인 feature 브랜치를 준비한다.
-2. Git이 추적하는 실습 파일을 수정하고 저장한다.
-3. git status와 git diff로 변경 내용을 확인한다.
-4. git stash push -m "승재 작업 전환 실습"으로 변경을 보관한다.
-5. git status와 git stash list로 보관 결과를 확인한다.
-6. main으로 전환했다가 원래 실습 브랜치로 돌아온다.
-7. git stash pop으로 변경을 복원한다.
-8. 파일 내용, git diff 및 git stash list로 복원 결과를 확인한다.
+### 실습 파일 내용
 
-### 실제 실행 명령과 결과
-실습 후 실제로 사용한 명령어와 출력 결과를 기록한다.
+최초 커밋한 내용:
 
-- 관련 Issue: 실행 시 기록
-- 작업 브랜치: 실행 시 기록
-- 실습 파일: 실행 시 기록
-- 보관 전 변경 내용: 실행 후 기록
-- stash 후 작업 상태: 실행 후 기록
-- 브랜치 전환 결과: 실행 후 기록
-- pop 후 복원된 내용: 실행 후 기록
-- pop 후 stash 목록: 실행 후 기록
+```text
+stash 실습의 기본 내용입니다.
+```
+
+커밋하지 않고 추가한 내용:
+
+```text
+아직 커밋하지 않은 작업을 잠시 보관합니다.
+```
+
+### 실행 절차
+
+1. 기본 파일을 생성하고 Git이 추적하도록 커밋했다.
+
+```powershell
+git add src/stash-practice.txt
+git commit -m "docs: stash 실습용 기본 파일 추가"
+```
+
+2. 두 번째 문장을 추가하고 저장한 뒤 변경 내용을 확인했다.
+
+```powershell
+git status
+git --no-pager diff -- src/stash-practice.txt
+```
+
+3. 해당 파일의 변경을 임시 보관했다.
+
+```powershell
+git stash push -m "작업 전환 실습" -- src/stash-practice.txt
+git status
+git stash list
+```
+
+4. 다른 브랜치로 전환했다가 원래 실습 브랜치로 돌아왔다.
+
+```powershell
+git switch feature/jiyoung-revert-practice
+git branch --show-current
+git switch feature/seungjae-stash-practice
+git branch --show-current
+```
+
+5. 보관한 변경을 복원하고 결과를 확인했다.
+
+```powershell
+git stash pop
+git --no-pager diff -- src/stash-practice.txt
+git status
+git stash list
+```
+
+### 결과
+- stash 후 `nothing to commit, working tree clean`을 확인했다.
+- stash 목록에 `작업 전환 실습` 항목이 생성됐다.
+- 다른 브랜치로 전환했다가 실습 브랜치로 복귀했다.
+- stash pop 후 추가했던 두 번째 문장이 복원됐다.
+- 파일은 커밋 전 변경 상태인 `modified`로 표시됐다.
+- `Dropped refs/stash@{0}` 메시지를 확인했다.
+- 마지막 `git stash list` 결과는 비어 있었다.
+- 복원 과정에서 충돌은 발생하지 않았다.
 
 ### 이 방법을 선택한 이유
-완성되지 않은 작업을 임시 커밋하지 않고 보관한 뒤,
-브랜치를 전환하고 돌아와 이어서 작업하기 위해 stash를 사용한다.
+완성되지 않은 변경을 임시 커밋하지 않고 보관한 뒤,
+다른 브랜치에서 작업하고 돌아와 이어서 작업하기 위해 stash를 사용했다.
+이번에는 파일 경로를 지정해 실습 파일의 변경만 보관했다.
 
 ### 주의점
-- 기본 stash는 추적되지 않는 새 파일을 포함하지 않으므로,
-  이번 실습은 이미 커밋된 파일을 수정하여 진행한다.
+- 기본 stash는 추적되지 않는 새 파일을 포함하지 않으므로 이미 커밋한 파일을 수정했다.
 - stash는 로컬에 보관되며 일반적인 git push로 공유되지 않는다.
-- stash pop이 성공하면 해당 항목이 stash 목록에서 제거된다.
-- 복원 중 충돌이 발생하면 변경 내용과 stash 목록을 확인하고 해결한다.
-- 기존 stash가 있다면 실습용 항목을 구분하여 사용한다.
+- stash pop은 변경을 복원하며, 성공하면 해당 보관 항목을 제거한다.
+- 복원 중 충돌이 발생하면 stash 항목이 남을 수 있으므로 상태와 목록을 확인한다.
+- 복원된 변경은 자동으로 커밋되지 않으므로 별도로 커밋해야 한다.
 
 ### 증빙
-실습 후 보관 전 diff, 보관 후 status와 stash 목록,
-브랜치 전환 및 복원 결과, 관련 PR 링크를 추가한다.
+- [보관 전 변경 내용](evidence/stash-before.png)
+- [보관 후 상태와 목록](evidence/stash-saved.png)
+- [브랜치 전환과 복귀](evidence/stash-switch.png)
+- [복원 후 변경 내용과 빈 목록](evidence/stash-after.png)
