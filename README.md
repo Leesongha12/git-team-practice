@@ -24,5 +24,8 @@ main을 안정적으로 유지하면서 서로의 변경 사항을 검토하기 
 
 ## 팀원 소개
 
+## 팀원 소개
+
 - [이송하](team/songha.md)
 - [이지영](team/jiyoung.md)
+- [황승재](team/seungjae.md)
