@@ -15,3 +15,6 @@ GitHub Flow를 기반으로 브랜치, PR, 코드 리뷰,
 ## 브랜치 전략
 작업별 feature 브랜치를 만들고 PR과 리뷰를 거쳐 main에 병합합니다.
 main을 안정적으로 유지하면서 서로의 변경 사항을 검토하기 위해 GitHub Flow를 사용합니다.
+
+## 팀원 소개
+- [이송하](team/songha.md)
