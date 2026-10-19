@@ -116,8 +116,8 @@ git status
 ## 실습 3: 원격에 push한 커밋을 git revert로 취소
 
 ### 참여자
-- 실제 실행자: <이지영>
-- 기록 작성자: <이송하>
+- 실제 실행자: 이지영
+- 기록 작성자: 이송하
 
 ### 상황
 원격에 push한 파일 추가 커밋을 취소하는 상황을 실습했다.
@@ -196,12 +196,12 @@ reset으로 브랜치를 과거로 옮기고 강제로 push하는 방식 대신,
 ## 실습 4: stash와 stash pop으로 작업 보관 및 복원
 
 ### 참여자
-- 실제 실행자: <황승재>
-- 기록 작성자: <이송하>
+- 실제 실행자: 황승재
+- 기록 작성자: 이송하
 
 ### 환경과 관련 작업
 - 환경: Windows, VS Code, PowerShell
-- 관련 Issue: #<생성한 Issue 번호>
+- 관련 Issue: #<22>
 - 작업 브랜치: `feature/seungjae-stash-practice`
 - 전환한 브랜치: `feature/jiyoung-revert-practice`
 - 실습 파일: `src/stash-practice.txt`

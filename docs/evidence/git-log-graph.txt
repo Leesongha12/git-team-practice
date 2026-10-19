@@ -1,0 +1,62 @@
+﻿*   3a40757 Merge pull request #22 from Leesongha12/feature/seungjae-stash-practice
+|\  
+| * 6eb3246 docs: 由щ럭 諛섏쁺?쇰줈 stash apply? pop 李⑥씠 ?ㅻ챸 異붽?
+| * f715cb2 docs: stash ?묒뾽 蹂듭썝 寃곌낵? ?ㅼ뒿 利앸튃 異붽?
+| * 09f8620 docs: stash ?ㅼ뒿??湲곕낯 ?뚯씪 異붽?
+| * b9daa26 docs: revert ?ㅼ뒿 寃곌낵? ?꾪썑 利앸튃 異붽?
+| * 47a54e5 Revert "docs: revert 痍⑥냼 ????ㅼ뒿 ?뚯씪 異붽?"
+| * ac43411 docs: revert 痍⑥냼 ????ㅼ뒿 ?뚯씪 異붽?
+| * 52b4a6b docs: revert? stash ?ㅼ뒿 怨꾪쉷 諛?湲곕줉 ? 異붽?
+| * 155acd9 docs: ?≫븯 amend? soft reset ?ㅼ뒿 湲곕줉 諛?利앸튃 異붽?
+| * be3db7a docs: soft reset ???≫븯 ?ㅼ뒿 ?뚯씪 ?ㅼ떆 而ㅻ컠
+|/  
+*   6889ee4 Merge pull request #17 from Leesongha12/feature/songha-conflict16-b
+|\  
+| * dfa9683 docs: ??踰덉㎏ 異⑸룎 湲곕줉???먮Ц 利앸튃 留곹겕 異붽?
+| * 9962a6d docs: ??踰덉㎏ 異⑸룎 ?닿껐 湲곕줉怨?利앸튃 異붽?
+| *   5b3f089 docs: ??踰덉㎏ 異⑸룎 ?닿껐 諛?怨듭쑀 ?뺣낫 ?듯빀
+| |\  
+| | * ede5b2b docs: 異⑸룎 釉뚮옖移섏? ?뚯씪 寃쎈줈 怨듭쑀 洹쒖튃 異붽?
+| |/  
+|/|   
+| * bba140f docs: 異⑸룎 ?ㅽ뻾 紐낅졊?댁? ?ㅻ쪟 硫붿떆吏 怨듭쑀 洹쒖튃 異붽?
+|/  
+*   dfe23a2 Merge pull request #15 from Leesongha12/feature/songha-conflict-log
+|\  
+| * 8d5f481 docs: 異⑸룎 ?닿껐 ?섎룄? ?ㅼ젣 寃곌낵 諛??꾩냽 ?뺤씤 ?뺣━
+| * f8aebb8 docs: ?ㅼ젣 蹂묓빀 寃곌낵??留욎떠 異⑸룎 湲곕줉 ?섏젙
+| * 4d348ec docs: ?닿껐???ㅻ챸??諛섏쁺??異⑸룎 湲곕줉 蹂댁셿
+| * 1966264 docs: 泥?踰덉㎏ 異⑸룎 ?닿껐???뺣낫 紐낆떆
+| * 0bc44ab docs: 泥?踰덉㎏ 異⑸룎 ?닿껐 湲곕줉 珥덉븞 異붽?
+|/  
+*   8f85bd9 Merge pull request #13 from Leesongha12/feature/seungjae-conflict-guide
+|\  
+| *   f141f28 Merge branch 'main' into feature/seungjae-conflict-guide
+| |\  
+| |/  
+|/|   
+* |   b887a6f Merge pull request #11 from Leesongha12/feature/jiyoung-conflict-guide
+|\ \  
+| * | 1a3cf99 docs: 異⑸룎 ???媛?대뱶 ?섏젙 ?ы빆 諛섏쁺
+| * | 389304d docs: 異⑸룎 諛쒖깮 ??怨듭쑀???뺣낫? ?꾩튂 援ъ껜??|/ /  
+| * efc0f04 docs: 異⑸룎 諛쒖깮 ??怨듭쑀???뺣낫? ?꾩튂 援ъ껜??|/  
+*   5356c54 Merge pull request #8 from Leesongha12/feature/songha-contributing
+|\  
+| * 0f2acf7 docs: 由щ럭 ?섍껄??諛섏쁺??肄붾뱶 由щ럭 ?덉떆 異붽?
+| * c2af0e1 docs: ? ?묒뾽 媛?대뱶 珥덉븞 異붽?
+|/  
+*   4f6c18d Merge pull request #6 from Leesongha12/feature/bigulgiya999-introduction
+|\  
+| * d3bc197 Fix formatting and headings in seungjae.md
+| * 45a8a22 Update seungjae.md
+| * 3422772 docs: ????뚭컻 臾몄꽌? README 留곹겕 異붽?
+|/  
+*   cb0518e Merge pull request #4 from Leesongha12/feature/jiyoung-introduction
+|\  
+| * 2dfb7c3 docs: 由щ럭瑜?諛섏쁺??異⑸룎 ?닿껐 ?숈뒿 紐⑺몴 援ъ껜??| * df370f1 docs: ?댁????뚭컻 臾몄꽌? README 留곹겕 異붽?
+|/  
+*   ab2bafe Merge pull request #2 from Leesongha12/feature/songha-introduction
+|\  
+| * 8acbeba docs: 由щ럭瑜?諛섏쁺??AI ?묒뾽 ?먮룞??愿??遺꾩빞 援ъ껜??| * 8b18274 docs: ?댁넚???뚭컻 臾몄꽌? README 留곹겕 異붽?
+|/  
+* 92cdf82 chore: ? ?묒뾽 ?ㅼ뒿??湲곕낯 ?대뜑? README 異붽?
