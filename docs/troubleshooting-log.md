@@ -113,48 +113,84 @@ git status
 - [reset 후 변경 유지 확인](evidence/songha-reset-soft-after.png)
 - [실행 이력과 재커밋 결과](evidence/songha-troubleshooting-reflog.png)
 
-## 실습 3: revert로 원격에 push한 커밋의 변경 취소
+## 실습 3: 원격에 push한 커밋을 git revert로 취소
 
 ### 참여자
-- 예정 실행 및 기록 작성자: 이지영(L-jy16)
-- 수행 상태: 실행 전
+- 실제 실행자: <이지영>
+- 기록 작성자: <이송하>
 
 ### 상황
-실습용 파일의 변경을 개인 feature 브랜치에 커밋하고 원격에 push한 뒤,
-해당 변경을 취소하는 상황을 실습한다.
+원격에 push한 파일 추가 커밋을 취소하는 상황을 실습했다.
+작업 브랜치는 `feature/jiyoung-revert-practice`이며,
+취소 대상 파일은 `src/revert-practice.txt`다.
 
-### 실행 계획
-1. 작업 Issue를 생성하고 개인 feature 브랜치를 준비한다.
-2. 실습 파일을 수정하고 커밋한다.
-3. 해당 커밋을 원격 브랜치에 push한다.
-4. 취소 대상 커밋 번호를 확인한다.
-5. git revert로 해당 변경을 취소하는 새 커밋을 만든다.
-6. 파일 내용과 커밋 이력을 확인하고 원격에 push한다.
+### 실행 과정
 
-### 실제 실행 명령과 결과
-실습 후 실제로 사용한 명령어와 출력 결과를 기록한다.
+1. 실습용 파일을 생성하고 다음 명령으로 커밋했다.
 
-- 관련 Issue: 실행 시 기록
-- 작업 브랜치: 실행 시 기록
-- 원격에 push한 취소 대상 커밋: 실행 후 기록
-- revert로 생성된 커밋: 실행 후 기록
-- 파일 변경 전후 내용: 실행 후 기록
-- 원격 push 결과: 실행 후 기록
+```powershell
+git add src/revert-practice.txt
+git commit -m "docs: revert 취소 대상 실습 파일 추가"
+```
+
+생성된 커밋은 `ac43411`이다.
+
+2. 해당 커밋을 원격 브랜치에 push했다.
+
+```powershell
+git push -u origin feature/jiyoung-revert-practice
+```
+
+3. 원격에 공유한 커밋의 변경을 revert로 취소했다.
+
+```powershell
+git revert --no-edit ac43411
+```
+
+취소 커밋 `47a54e5`가 생성됐으며,
+파일 추가를 되돌려 `src/revert-practice.txt`가 삭제됐다.
+
+4. 취소 커밋을 원격 브랜치에 push했다.
+
+```powershell
+git push
+```
+
+### 결과
+- 원래 커밋 `ac43411`을 삭제하지 않고 유지했다.
+- 변경을 취소하는 새 커밋 `47a54e5`를 생성했다.
+- 실습 파일의 추가가 취소됐다.
+- 원격 브랜치에 취소 커밋을 반영했다.
+
+### 검증 방법
+
+```powershell
+git --no-pager log -2 --oneline
+git status
+Test-Path src/revert-practice.txt
+```
+
+검증 기준:
+- 로그에 원래 커밋과 취소 커밋이 모두 나타난다.
+- 작업 디렉터리가 clean 상태다.
+- 파일 존재 확인 결과가 `False`다.
 
 ### 이 방법을 선택한 이유
-이미 원격에 공유한 변경을 취소하면서 기존 커밋 이력을 유지하기 위해
-reset 대신 revert를 사용한다.
-revert는 기존 커밋을 삭제하지 않고, 그 변경을 되돌리는 새 커밋을 만든다.
+이미 원격에 공유한 커밋이므로 기존 히스토리를 유지하는 revert를 사용했다.
+reset으로 브랜치를 과거로 옮기고 강제로 push하는 방식 대신,
+취소 내역을 새 커밋으로 남겨 팀원이 변경 과정을 확인할 수 있게 했다.
 
 ### 주의점
-- main이 아닌 실습용 feature 브랜치에서 진행한다.
-- 취소할 커밋의 변경 내용을 확인한 뒤 실행한다.
-- 이번 실습에서는 병합 커밋이 아닌 일반 커밋을 대상으로 한다.
-- 강제 push를 사용하지 않는다.
+- 이번 실습은 일반 커밋 하나를 취소한 사례다.
+- revert는 기존 커밋을 삭제하지 않고 변경을 되돌리는 커밋을 만든다.
+- 이후 변경과 겹치는 경우 revert 중에도 충돌이 발생할 수 있다.
+- 공유 브랜치의 히스토리를 강제로 변경하지 않는다.
 
 ### 증빙
-실습 후 취소 대상 커밋의 push 결과, revert 실행 결과,
-변경 전후 파일 내용 및 관련 PR 링크를 추가한다.
+- [취소 전 커밋과 push 결과](evidence/revert-before.png)
+- [취소 후 검증 결과](evidence/revert-after.png)
+- [취소 대상 커밋 ac43411](https://github.com/Leesongha12/git-team-practice/commit/ac43411)
+- [취소 커밋 47a54e5](https://github.com/Leesongha12/git-team-practice/commit/47a54e5)
 
 
 ## 실습 4: stash와 stash pop으로 작업 보관 및 복원
